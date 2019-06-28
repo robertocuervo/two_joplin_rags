@@ -1,15 +1,16 @@
 \language "english"
 %{
-Proud Mary song
+Two Joplin Rags, transcription for soprano sax of the oboe part of the Two Joplin Rags by Joplin
 ===================
 
 %}
 
 proud_mary =  \relative c''{
-  \key ef \major
-  \tempo "Easy rock" 4 = 104
-  r2_"Drum intro" r4 bf,16_\mf c16 ef8-.  |
-  \repeat volta 2 {
+  \key af \major
+  \tempo "Moderato" 4 = 96
+  \time 2/4
+  \partial 8 r8 | \repeat volta 2 {   \mark \markup { \musicglyph #"scripts.segno" } r8 ef,8_\f ef8 r8 | r8 g8 g8 r8 |  r8 ef8 ef8 r8   |
+ 
     ef1~ | ef2~ ef8 c8 ef8 f8 | g2~ g8 f8 g8 ef8~ | ef4. bf16 b16 c8 ef8-. ef8 c8 |
   }
 
@@ -83,8 +84,8 @@ proud_mary_lead = \chordmode {
 
 \bookpart {
   \header{
-    title = "Proud Mary"
-    composer = "John Fogerty"
+    title = "Two Joplin Rags"
+    composer = "Scott Joplin"
     tagline = ""  % removed
   }
 
@@ -101,8 +102,8 @@ proud_mary_lead = \chordmode {
 
 \bookpart {
   \header{
-    title = "Proud Mary"
-    composer = "John Fogerty"
+   title = "Two Joplin Rags"
+    composer = "Scott Joplin"
     tagline = ""  % removed
   }
  \markup {Soprano Sax}
