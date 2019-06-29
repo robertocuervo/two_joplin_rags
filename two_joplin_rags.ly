@@ -5,54 +5,126 @@ Two Joplin Rags, transcription for soprano sax of the oboe part of the Two Jopli
 
 %}
 
+num =
+#(define-music-function (parser location musique) (ly:music?)
+    #{ 
+      \override Score.BarNumber.break-visibility = ##(#f #t #t)
+      $musique 
+      \revert Score.BarNumber.break-visibility 
+    #})
+  
+
 proud_mary =  \relative c''{
   \key af \major
   \tempo "Moderato" 4 = 96
   \time 2/4
-  \partial 8 r8 | \repeat volta 2 {   \mark \markup { \musicglyph #"scripts.segno" } r8 ef,8_\f ef8 r8 | r8 g8 g8 r8 |  r8 ef8 ef8 r16 ef16   |
+  \partial 8 r8 | \repeat volta 3 {  
+    \once \override Score.RehearsalMark.font-size = #-2
+    \mark \markup { \musicglyph #"scripts.segno" } r8 ef,8_\f ef8 r8 | r8 g8 g8 r8 | r8 ef8 ef8 r8 | r8 g8 g8 r16 ef16   |
  
-  ff16 (af16) cf16 ff16 r16 ef8 ef,16 | ff16 (af16) cf16 ff16 r16 ef8 r16 | r2 | r16 af,16_\mp (cf16 ef16 af8) r8 | f,8_\mf  f8  f8  f8 |  af8 af8 af8 af8 |
-  af8 af8 af8 c8 | af8 g8 ef8 r16 af'16^"Solo"_\p~ | af8 af8 af8  af16 af16~ | af16 ef16 f16 c16 ef16 (f8) af,16~ | af16 bf16 cf16 af16 bf16 (c8) af16   
-  }
-
-  ef8\mf ef8 ef8 ef8~ ef8 f8 ef8 g8~ | g8 g8 r4 r2 | g8 g8 g8 g8  (f8) ef8 ef8 ef8 | f8 g8 g8 r8 r2 |
-  g16 g8. g8 g8 f8 (ef8) ef8 g8~ | g8 g8 g8 f8 (ef8)  ef8 r4 | g8 g8 g8 f8 (ef8)  ef8 ef4 | f8 g4 g8 r2 |
-  f8 f4. f8 f4 f8~ | f8 g8 r4 r4 r8 g8~ | g4 f8 ef8 f8 ef4 ef8~ |  ef8 c8 r4 r4 r8 g'8~ | g8 g8 r8 c8 (c8) bf8 r8 g8~ |
-  g8 g8 r8 c8 (c8) af8 r8 g8~ | g8 g8 f8 ef8 f8 (c8) ef'4~| ef8 g,8 g8 af8 ef8 d8 c8 g'8~ | g8^"grad. slower"  g8 r8 c8 (c8) bf8 r8 g8~ |
-  g8 g8 r8 c8 (c8) af8 r8 g8~  | g8 g8 f8 ef8 f4  (c4) | ef2.\fermata r4 \bar "||"
-  \break
-  \tempo "Driving rock" 4 = 168
-  ef4\f  ef4 ef4  ef4 | ef4 ef8 ef8 (ef8) ef8 ef4  |ef4  ef4 ef4  ef4 | ef4 ef8 ef8 (ef8) ef8 ef4  |ef4  ef4 ef4  ef4 |
-  ef4 ef8 ef8 (ef8) ef8 ef4  |ef4  ef4 ef4  ef4 | ef4 r4 r8 df'8\mf df8 df8~ | df8 bf8 af4 gf4 f8 ef8 | g8 g8 r4 r4 r8 df'8~ |
-  df8 bf8 af8 af8 gf4 f8 ef8 | f8 g4 g8 r2 | bf8 bf8 af8 af8 gf4 ef8 bf'8~ |  bf8 bf8 af8 gf8 (gf8) ef8 r8 df'8~ |
-  df8 bf8 af8 af8 gf4 f8 (ef8) | f8 g4 g8 r8 bf8 c8 ef8 |
-  \mark \markup { \musicglyph #"scripts.segno" }
-  bf4->_"cresc" bf4-> bf8 bf4 bf8(  | c8) df8 r4 r4 r8 ef8~-> | ef4 c8 bf8 c8 gf4 f8( | ef8) ef8 r4 r4 r8 c'8~\f
-  | c8 bf8 r4 r4 r8 c8~ | c8 bf8 r4 r4 r8 c8~ | c8 bf8 bf8 c8 gf8  (f8) ef4 | r8 bf'8 c8 ef8 f8 ef8 r8 c8~ |
-  c8 bf8 r4 r8 bf4 c8~ | c8 bf8 r4 r4 r8 c8~ |  c8 bf8 bf8 c8 gf8  (f8) ef4 | r8 ef'8-> r8 ef8-> (ef4) fs,8 g8
-  | r8 ef8 r8 ef8 r8 ef8 r8 g8 | r8 ef8 r8 ef8 r8 ef8 r8 g8 |
-  r8 ef8 r8 ef8 r8 ef8 r4 | df'8 df8 r8 bf8 (bf4) r4 | df8 df8 r8 bf8 (bf4) r4 | df8 df8 r8 bf8 r8 af8 r8 gf8 | r8 gf8 r8 ef8 g4 af4 |
-  ef4 ef4 ef4 ef4 | ef4 ef8 ef8 (ef8) ef8 ef4 | ef4^\markup { "To Coda"\musicglyph #"scripts.coda"} ef4 ef4 ef4 | ef4 ef8 ef8 r4 r8  df'8~ | df8 bf8 af4 gf4 f8 ef8 | g8 g8 r4 r4 df'8 df8 |
-  r8 bf8 af8 af8 gf4 f8 (ef8) | f8 g8 g8 g8 r2 | bf8 bf8  af8 af8 gf8 ef8 r8 bf'8~ | bf8 bf8 af8 ef8 gf8 ef8 ef8 df'8~ | df8 bf8 af8 af8 gf8 f8 ef4 |
-  f8^\markup { "D.S al Coda"}  g8 g8 g8 r8 bf8 c8 ef8 \bar "||"
-  \break
-  \mark \markup { \musicglyph #"scripts.coda" }
-  {r2^"Coda" r4 r8 c8~  }
-  \repeat volta 2 {
-    c8 bf8 r4 r4 r8 c8 ( | c8) bf8 r4 r4 r8 c8~ |  c8 bf8 bf8 c8 gf8  (f8) ef4 | r8 bf'8 c8 ef8 f8 ef8 r8 c8~
-    | c8 bf8 r4 r8 bf4 c8~ | c8 bf8 r4 r4 r8 c8~ |  c8 bf8 bf8 c8 gf8  (f8) ef4 |
-
-
+  ff16 (af16) cf16 ff16 r16 ef8 ef,16 | ff16 (af16) cf16 ff16 r16 ef8 r16 | 
+  \override Score.BarNumber.stencil
+    = #(make-stencil-boxer 0.1 0.25 ly:text-interface::print)
+         \num r2 | 
+  \revert Score.BarNumber.stencil 
+  r16 af,16_\mp\< (cf16 ef16 af8\!) r8 | f,8_\mf  f8  f8  f8 |  af8 af8 af8 af8 |
+  af8 af8 af8 c8 | af8 g8 ef8 r16 af'16^"Solo"_\p~ | 
+  \override Score.BarNumber.stencil
+    = #(make-stencil-boxer 0.1 0.25 ly:text-interface::print)
+     \num
+  af8 af8 af8  af16 af16~ | 
+   \revert Score.BarNumber.stencil 
+  
+  af16 ef16 f16 c16 ef16 (f8) af,16~ |
+  af16 bf16 cf16 af16 bf16 (c8) af16   
+  
   } \alternative {
-    \relative c'' {r8 ef8-> r8 ef8-> (ef4)  r8 c8\laissezVibrer}
+    \relative c'' { c16 (af16) bf8 af8 r8}
     {
-      r8 ef'8-> r8 ef8-> (ef8)  bf8 c8 df8~ | df8 df4.~  df2 | r8 cf8 bf4-^ af4  r8 ef'8~ | ef8 af,8 c8 ef8 (ef8) af,8 c8 ef8 |
-      f8 ef8 c8 ef8 (ef8) c8 ef4-> | ef8 bf8 c8 ef8 (ef8) bf8 c8 ef8 |  g8 f8 ef8 g8 (g8) g8 bf8 c8~-> |
-      c8 bf8 gf4-^ ef-^ df8 cf8 | bf8 gf8 f8 ef8 r8 g8 bf8 ef8 | df8-^ r8 r8 ef8-^ r4 ef4~ |ef2 ef,4-^ r4 \bar "|."
+                    c16 (af16) bf8 af8^"To 19" r8  \bar "||"
+    }
+    {
+                    c16 (af16) bf8 af8^"To 36"\< af8\!  \bar "||"
     }
   }
+  
+   \repeat volta 2 {
+      \override Score.BarNumber.stencil
+    = #(make-stencil-boxer 0.1 0.25 ly:text-interface::print)
+     \num
+     r8 g8\mf[ r8 g8] | 
+      
+       \revert Score.BarNumber.stencil
+      r8 g8[ r8 ef8] |
+      r8 af8[ r8 af8] |
+      r8 ef8[ r8 ef8] |
+      r8 ef8[ r8 ef8] |
+      r8 ef8[ r8 d8] |
+      r8 ef8[ r8 ef8] |
+      r8 ef8\<[ r8 ef8\!] |
+        \override Score.BarNumber.stencil
+    = #(make-stencil-boxer 0.1 0.25 ly:text-interface::print)
+     \num
+      r8 df'8\f[ r8 df8] |
+       \revert Score.BarNumber.stencil 
+       r8 df8[ r8 df8] |
+       r8 c8[ r8 c8] |
+       af8 af8->\< g8-> gf8->\! |
+       r16 f16\ff a16 c16 f16 (c16) a16 f16 |
+       r16 f16 bf16 df16 f8 df8 |
+       d8.-> df16-> r16 df8-> df16-> 
+  } \alternative {
+    \relative c'' { c8-> c8 c8 fs,8}
+    {
+    r16_"D.S (3rd ending)" ef,16 af16 c16 ef8 r8 \bar "||"
+    }
+  }
+  \repeat volta 2 {
+     \key df \major
+    \override Score.BarNumber.stencil
+    = #(make-stencil-boxer 0.1 0.25 ly:text-interface::print)
+      \bar ".|:" \num
+     c8.\mp c16~ c16 c16 c8 |
+       \revert Score.BarNumber.stencil
+       c8. c16~ c16 c16 e16 e16 |
+       df8 r8 r4 | r2 |  c8. c16~ c16 c16 c8 | c8. c16~ c16 c16 e16 e16 |df8 r8 r4 |  r4 r8 c8\< |
+    \override Score.BarNumber.stencil = #(make-stencil-boxer 0.1 0.25 ly:text-interface::print)
+     \num       d8.\mf\! f16 f16 f16 f8 |
+     \revert Score.BarNumber.stencil
+      d8. d16~ d16 d16 d16 d16 | 
+      ef16 ef,16 bf'16 ef,16 gf16 c8 ef16 | bf16 ef,16 gf16 c16~ c16\< ef,16 bf'8\! | ff'8\f f8 df8 df8 | df8 ef16 g16~ g16 bf,16 f'8 |
+      f16 (df16) ef16 f16  (f16) c16 ef16 df16~ |
+  }
+    \alternative {
+    \relative c'' {df16 f8 ef16 f16 (df16) b16 b16   }
+    { 
+      df16\repeatTie  af16 df16 f16 af8-> r8 \bar "||" 
+    }
 }
 
+\repeat volta 2 {
+ \key af \major  
+  \compressFullBarRests
+   \override Score.BarNumber.stencil
+    = #(make-stencil-boxer 0.1 0.25 ly:text-interface::print)
+  \bar ".|:"  \num  
+  R1*1    |
+    \revert Score.BarNumber.stencil
+  r8 c,8\mf c8 r8 |
+  r8 af8[ r8 c8] | r8 g8[ r8 g8] | r8 g8[ r8 df'8] | r8 c8 r8 r16 c16~ | c16\< ef16 f16 c16 ef16 (f8) ef16\!( | df8->\f) af8-> df8-> af8-> | 
+  df8->\< df16 f16~ f16\!\> f16 d16 d16\! | ef8 ef8 c16 (ef8) af,16~ | af16 c16 ef16 af,16 c16 (ef8) af,16~ | af16 bf16 af8 af8 bf16 (af16~ | 
+  af16) bf16 c16 af16 bf16 c8 d16~ | d16\ff f16 af16 (d,16) r16 df8-> df16-> | 
+  
+} \alternative {
+    \relative c'' { 
+    c8-> af8\> g8 gf8\! 
+    
+    }
+{ c8-> g'8-> af8-> r8 \bar "|." 
+}
+}
+
+}
 
 
 
