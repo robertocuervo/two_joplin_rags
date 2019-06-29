@@ -179,9 +179,9 @@ the_cascades =  \relative c''{
      }  
     }
      \override Score.BarNumber.stencil = #(make-stencil-boxer 0.1 0.25 ly:text-interface::print)
-          \num f8-> f4-> f8-> | 
+          \num f8\f-> f4-> f8-> | 
            \revert Score.BarNumber.stencil 
-          f8\f-> f4-> f8-> | ef4-> e4-> | f8-> r8 a4-> \bar "||"
+          f8-> f4-> f8-> | ef4-> e4-> | f8-> r8 a4-> \bar "||"
         \repeat volta 2 {
        \key bf \major  
               \compressFullBarRests
