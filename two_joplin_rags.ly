@@ -9,9 +9,10 @@ proud_mary =  \relative c''{
   \key af \major
   \tempo "Moderato" 4 = 96
   \time 2/4
-  \partial 8 r8 | \repeat volta 2 {   \mark \markup { \musicglyph #"scripts.segno" } r8 ef,8_\f ef8 r8 | r8 g8 g8 r8 |  r8 ef8 ef8 r8   |
+  \partial 8 r8 | \repeat volta 2 {   \mark \markup { \musicglyph #"scripts.segno" } r8 ef,8_\f ef8 r8 | r8 g8 g8 r8 |  r8 ef8 ef8 r16 ef16   |
  
-    ef1~ | ef2~ ef8 c8 ef8 f8 | g2~ g8 f8 g8 ef8~ | ef4. bf16 b16 c8 ef8-. ef8 c8 |
+  ff16 (af16) cf16 ff16 r16 ef8 ef,16 | ff16 (af16) cf16 ff16 r16 ef8 r16 | r2 | r16 af,16_\mp (cf16 ef16 af8) r8 | f,8_\mf  f8  f8  f8 |  af8 af8 af8 af8 |
+  af8 af8 af8 c8 | af8 g8 ef8 r16 af'16^"Solo"_\p~ | af8 af8 af8  af16 af16~ | af16 ef16 f16 c16 ef16 (f8) af,16~ | af16 bf16 cf16 af16 bf16 (c8) af16   
   }
 
   ef8\mf ef8 ef8 ef8~ ef8 f8 ef8 g8~ | g8 g8 r4 r2 | g8 g8 g8 g8  (f8) ef8 ef8 ef8 | f8 g8 g8 r8 r2 |
@@ -55,33 +56,6 @@ proud_mary =  \relative c''{
 
 
 
-
-
-
-proud_mary_lead = \chordmode {
-  \set minorChordModifier = \markup { "-" }
-  s1 |
-  \repeat volta 2 {
-    ef1 | af1/ef | ef2.. af8/ef | s1 |}
-  
-   ef1 | s2 f2:m/ef | ef1 | s2 f2:m/ef |  ef1 |
-    s1 | ef1 | s1 | bf1 | s1| s1 | s1 | s1 | s1| s1| s1| s1| s1 | s1 | 	ef1 |
-    ef4  af4/ef ef4:7 af4/ef |   ef4. ef4.:7  af4/ef | ef4  af4/ef ef4:7 af4/ef | s1 |
-    s1 | s1 | s1 |  s1 |
-    s1 | s1 | s1 |  s1 |
-    s1 | s1 | s1 |  s1 |
-    bf1 | s1 | s1 |  s1 |
-    s1 | s1 | s1 |  s1 |
-    s1 | s1 | s1 | s1  | %{53 %} ef1 | ef1 | ef1  | df4. bf8 s2 |  df4. bf8 s2 | s1 |
-    s1 | ef4  af4/ef ef4:7 af4/ef |   ef4. ef4.:7  af4/ef | s1 | 
-  }
-
-
-
-
-
-
-
 \bookpart {
   \header{
     title = "Two Joplin Rags"
@@ -93,7 +67,6 @@ proud_mary_lead = \chordmode {
   \score {
     {
       <<
-        \new ChordNames \proud_mary_lead
         \new Staff \proud_mary
       >>
     }
@@ -110,7 +83,7 @@ proud_mary_lead = \chordmode {
   \score {
     \transpose bf c'
     <<
-      \new ChordNames \proud_mary_lead
+   
       \new Staff \proud_mary
     >>
   }
