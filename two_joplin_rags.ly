@@ -86,7 +86,7 @@ proud_mary =  \relative c''{
       \bar ".|:" \num
      c8.\mp c16~ c16 c16 c8 |
        \revert Score.BarNumber.stencil
-       c8. c16~ c16 c16 e16 e16 |
+       c8. c16~ c16 c16 ef16 ef16 |
        df8 r8 r4 | r2 |  c8. c16~ c16 c16 c8 | c8. c16~ c16 c16 e16 e16 |df8 r8 r4 |  r4 r8 c8\< |
     \override Score.BarNumber.stencil = #(make-stencil-boxer 0.1 0.25 ly:text-interface::print)
      \num       d8.\mf\! f16 f16 f16 f8 |
@@ -131,6 +131,7 @@ proud_mary =  \relative c''{
 \bookpart {
   \header{
     title = "Two Joplin Rags"
+    subtitle = "1. Maple Leaf Rag"
     composer = "Scott Joplin"
     tagline = ""  % removed
   }
@@ -148,6 +149,7 @@ proud_mary =  \relative c''{
 \bookpart {
   \header{
    title = "Two Joplin Rags"
+   subtitle = "1. Maple Leaf Rag"
     composer = "Scott Joplin"
     tagline = ""  % removed
   }
